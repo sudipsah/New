@@ -12,8 +12,8 @@ public class Data {
 	        		final Document document = Jsoup.connect("https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=+"+listOfLines).get();
 
 	            for (Element row: document.select("div.a-span7")) {
-	            	final String price1 = row.select("span.a-offscreen").text();
-	            	System.out.println("Isbn number"+listOfLines+"\nPrice="+price1);
+	            	final String price2= row.select("span.a-offscreen").text();
+	            	System.out.println("Isbn number"+listOfLines+"\nPrice="+price2);
 	            
 	            }
 	        	}catch(IOException e) {
