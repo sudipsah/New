@@ -4,7 +4,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 
-
 public class Abe{
 		public   void Data1(String str) throws IOException {
 			
@@ -19,7 +18,7 @@ public class Abe{
 		int indexForTitle;
 		
 		System.out.print("Books name and author Name:\n");	
-		/*while ((inputLine = in.readLine()) != null) {
+		while ((inputLine = in.readLine()) != null) {
 			
 			flag=false;
 			
@@ -41,7 +40,7 @@ public class Abe{
 				if(flag==true) break;
 			}
 		}
-		*/
+		
 
 			
 		System.out.println();
@@ -71,6 +70,7 @@ public class Abe{
 		}
 		
 	}
+/*-------------------------------------------------------------------*/
 	public void Data2(String str) throws IOException {
 			
 			
@@ -79,6 +79,7 @@ public class Abe{
 			            new InputStreamReader(
 			            yahoo.openStream()));
 			String inputLine;	
+			char []ch1;
 			boolean flag=false;
 				int  indexForUS$;
 				int indexForTitle;				
@@ -91,19 +92,19 @@ public class Abe{
 					
 					if(inputLine.indexOf("title")!=-1) {
 					
-						char[] ch=inputLine.toCharArray();
+						ch1=inputLine.toCharArray();
 						
-						for(int i=indexForTitle+6;i<ch.length;i++) {
+						for(int i=indexForTitle+6;i<ch1.length;i++) {
 							
-							if(ch[i]==':'||ch[i]=='/') break;
-							System.out.print(ch[i]);	
+							if(ch1[i]==':'||ch1[i]=='/') break;
+							System.out.print(ch1[i]);	
 							flag=true;							
 						}
 						
 						if(flag==true) break;
 					}
 				}
-					
+					char[]ch;
 				System.out.println();
 				System.out.print("Price:");
 				while ((inputLine = in.readLine()) != null) {
@@ -112,7 +113,7 @@ public class Abe{
 					
 					if(inputLine.indexOf("US$")!=-1) {
 					
-						char[] ch=inputLine.toCharArray();
+						ch=inputLine.toCharArray();
 						
 						for(int i=indexForUS$;i<ch.length;i++) {
 							
@@ -128,11 +129,13 @@ public class Abe{
 						}
 					}
 				}
-			}
-public void Data3(String str1) throws IOException {
+							}
+	
+/*----------------------------------------------------------------*/
+public void Data3(String s) throws IOException {
 			
 			
-			URL yahoo = new URL("https://www.abebooks.com/servlet/BookDetailsPL?bi=22733736603&searchurl=kn%3D"+str1);
+			URL yahoo = new URL("https://www.abebooks.com/servlet/BookDetailsPL?bi=22803480316&searchurl=sortby%3D17%26an%3Dyuval%2Bnoah%2Bharari&cm_"+s);
 			BufferedReader in = new BufferedReader(
 			            new InputStreamReader(
 			            yahoo.openStream()));
@@ -164,7 +167,7 @@ public void Data3(String str1) throws IOException {
 						if(flag==true) break;
 					}
 				}
-				System.out.print("Price:");
+				System.out.print("\nPrice:");
 				while ((inputLine = in.readLine()) != null) {
 					
 					indexForUS$=inputLine.indexOf("US$");
@@ -188,4 +191,126 @@ public void Data3(String str1) throws IOException {
 					}
 				}	
 		}
+/*------------------------------------------------------------*/
+
+public void Data4(String s) throws IOException {
+	
+	
+	URL yahoo = new URL("https://www.abebooks.com/servlet/BookDetailsPL?bi=22820284154&searchurl=kn%3D%2B"+s);
+	BufferedReader in = new BufferedReader(
+	            new InputStreamReader(
+	            yahoo.openStream()));
+	String inputLine;
+	boolean flag=false;
+	int  indexForUS$;
+	int indexForTitle;
+	System.out.print("Books name and author Name:\n");	
+	while ((inputLine = in.readLine()) != null) {
+		
+		flag=false;
+		
+		indexForTitle=inputLine.indexOf("title");
+		
+		if(inputLine.indexOf("title")!=-1) {
+		
+			char[] ch=inputLine.toCharArray();
+			
+			for(int i=indexForTitle+6;i<ch.length;i++) {
+				
+				if(ch[i]==':'||ch[i]=='/') break;
+				System.out.print(ch[i]);
+				
+				flag=true;
+				
+			}
+			
+			if(flag==true) break;
+		}
+	}
+	System.out.print("\nPrice:");
+	while ((inputLine = in.readLine()) != null) {
+		
+		indexForUS$=inputLine.indexOf("US$");
+		
+		if(inputLine.indexOf("US$")!=-1) {
+		
+			char[] ch=inputLine.toCharArray();
+			
+			for(int i=indexForUS$;i<ch.length;i++) {
+				
+				if(ch[i]=='<'||ch[i]=='/') break;
+				System.out.print(ch[i]);
+				flag=true;
+				
+			}
+			
+			if(flag==true) {
+				System.out.println("\n");
+				
+			}
+		}
+	}
+	
+	}
+/*----------------------------------------------------------*/
+public void Data5(String st) throws IOException {
+	
+	
+	URL info = new URL("https://www.abebooks.com/servlet/BookDetailsPL?bi=22819294786&searchurl=kn%3D%2B"+st);
+	BufferedReader in = new BufferedReader(
+	            new InputStreamReader(
+	            info.openStream()));
+	String inputLine;
+	boolean flag=false;
+	int  price;
+	int title;
+	System.out.print("Books name and author Name:\n");	
+	while ((inputLine = in.readLine()) != null) {
+		
+		flag=false;
+		
+		title=inputLine.indexOf("title");
+		
+		if(inputLine.indexOf("title")!=-1) {
+		
+			char[] ch=inputLine.toCharArray();
+			
+			for(int i=title+6;i<ch.length;i++) {
+				
+				if(ch[i]==':'||ch[i]=='/') break;
+				System.out.print(ch[i]);
+				
+				flag=true;
+				
+			}
+			
+			if(flag==true) break;
+		}
+	}
+	System.out.print("\nPrice:");
+	while ((inputLine = in.readLine()) != null) {
+		
+		price=inputLine.indexOf("US$");
+		
+		if(inputLine.indexOf("US$")!=-1) {
+		
+			char[] ch=inputLine.toCharArray();
+			
+			for(int i=price;i<ch.length;i++) {
+				
+				if(ch[i]=='<'||ch[i]=='/') break;
+				System.out.print(ch[i]);
+				flag=true;
+				
+			}
+			
+			if(flag==true) {
+				System.out.println("\n");
+				
+			}
+		}
+	}
+/*------------------------------------------------------------*/
+	}
+
 }
